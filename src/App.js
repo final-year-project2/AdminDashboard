@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { NavLink, Outlet } from "react-router-dom";
+import SideBar from "./components/SideBar/SideBar";
+import NavBar from "./components/NavBar/NavBar";
+import Home from "./pages/Homepage/Home";
 
 function App() {
+
+  const link = [1,2,3,4,5]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="text-red-500">
+
+      <Home/>
     </div>
   );
 }
 
 export default App;
+// lema dev
+// <div className="flex  h-full">
+// <div className="flex-5 bg-gray-500">
+//   {link.map((link)=>
+//   <NavLink to={`/${link}`} className={({isActive})=>{
+//     return isActive ? "text-purple-500":''
+//   }}>
+//     <div className="gap-y-0">
+//       <div>
+//       link {link}
+//       </div>
+//     </div>
+//   </NavLink>)
+  
+//   }
+// </div>
+// </div>
