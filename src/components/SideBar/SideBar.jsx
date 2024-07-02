@@ -22,7 +22,7 @@ function SideBar() {
         <div>
             <p className="text-gray-400" >Home</p>
                 <NavLink to={''}>
-                    <div  className={`${ActiveLink == '/' ? "ActiveLink":'navLink'}`} onClick={()=>setActiveLink('/')}>
+                    <div  className={`${ActiveLink === '/' ? "ActiveLink":'navLink'}`} onClick={()=>setActiveLink('/')}>
                         <DashboardIcon/>
                         <span >DashBoard</span>
                     </div>
@@ -33,7 +33,7 @@ function SideBar() {
             <p className="text-gray-400">Personal Information</p>
             
                 <NavLink to={''}>
-                    <div  className={`${ActiveLink == '/admin' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/admin')}>
+                    <div  className={`${ActiveLink === '/admin' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/admin')}>
                         <AdminPanelSettingsIcon/>
                         <span>Admin</span>
                     </div>
@@ -41,14 +41,14 @@ function SideBar() {
             
            
                 <NavLink to={''}>
-                    <div  className={`${ActiveLink == '/user' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/user')}>
+                    <div  className={`${ActiveLink === '/user' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/user')}>
                         <PersonIcon/>
                         <span >users</span>
                     </div>
                 </NavLink>
            
                 <NavLink to={''}>
-                    <div  className={`${ActiveLink == '/seller' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/seller')}>
+                    <div  className={`${ActiveLink === '/seller' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/seller')}>
                         <StorefrontIcon/>
                         <span>Sellers</span>
                     </div>
@@ -59,7 +59,7 @@ function SideBar() {
             <p className="text-gray-400">Ticket Information</p>
             
                 <NavLink to={''}>
-                    <div  className={`${ActiveLink == '/ticketlist' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/ticketlist')}>
+                    <div  className={`${ActiveLink === '/ticketlist' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/ticketlist')}>
                         <AddCardIcon/>
                         <span>Tickets List</span>
                     </div>
@@ -67,14 +67,14 @@ function SideBar() {
             
             
                 <NavLink to={''}>
-                    <div  className={`${ActiveLink == '/purchasedticket' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/purchasedticket')}>
+                    <div  className={`${ActiveLink === '/purchasedticket' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/purchasedticket')}>
                         <ShoppingCartIcon/>
                         <span>Purchased Ticket</span>
                     </div>
                 </NavLink>
             
                 <NavLink to={''}>
-                    <div  className={`${ActiveLink == '/drawedticket' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/drawedticket')}>
+                    <div  className={`${ActiveLink === '/drawedticket' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/drawedticket')}>
                         <CheckCircleOutlineIcon/>
                         <span>Drawed Ticket</span>
                     </div>
@@ -83,7 +83,7 @@ function SideBar() {
 
             
                 <NavLink to={''}>
-                    <div  className={`${ActiveLink == '/winner' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/winner')}>
+                    <div  className={`${ActiveLink === '/winner' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/winner')}>
                         <EmojiEventsIcon/>
                         <span>Winner</span>
                     </div>
@@ -93,7 +93,7 @@ function SideBar() {
         <div>
             <p>Action</p>
             <NavLink to={''}>
-                    <div  className={`${ActiveLink == '/logout' ? "ActiveLink":'navLink'}`}>
+                    <div  className={`${ActiveLink === '/logout' ? "ActiveLink":'navLink'}`}>
                         <LogoutIcon/>
                         <span>Logout</span>
                     </div>
