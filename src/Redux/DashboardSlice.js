@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     StaticsData: {},
+    transaction_count:0
 }
 export const dashboardSlice = createSlice({
     name: 'StaticsData',
@@ -9,6 +10,7 @@ export const dashboardSlice = createSlice({
     reducers: {
     SetStaticData: (state, action) => {
         state.StaticsData = action.payload
+        state.transaction_count=action.payload.staticsData.transaction_count
     },
 },
 })

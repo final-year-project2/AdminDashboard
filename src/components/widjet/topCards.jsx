@@ -10,7 +10,7 @@ function Cards({type,Number,linkText,action,unit}) {
                     {type}
                 </div>
 
-                <div className='text-4xl py-2 pl-1 text-gray-600  '>
+                <div className='text-4xl py-2 pl-1 text-blue-600  '>
                     {Number}
                     <span className='text-sm font-light pl-2'>{unit}</span>
                 </div>
@@ -21,12 +21,12 @@ function Cards({type,Number,linkText,action,unit}) {
                 </div>
             </div>
 
-            <div className='flex flex-col justify-between items-end text-green-400'>
+            <div className='flex flex-col justify-between items-end text-green-500'>
                 <div>
                     <ArrowForwardIcon/>
                     <span>{action}</span>
                 </div>
-                <div className='text-yellow-500 text-sm flex items-center'>
+                <div className='text-green-400 text-sm flex items-center'>
                     <AccessTimeIcon className='p-1'/>
                     <span>Current info</span>
                 </div>

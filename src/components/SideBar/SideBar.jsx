@@ -12,8 +12,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 function SideBar() {
     const [ActiveLink,setActiveLink] = useState('/')
   return (
-    <div className="min-h-screen px-4 border-r-gray-300 border-2">
-        <div className="border-r-slate-950">
+    <div className="h-svh px-4 border-r-2 ">
+        <div>
             <div className="h-14 flex items-center justify-center text-2xl font-bold text-blue-500">
                 Admin Dashboard
             </div>
@@ -39,14 +39,12 @@ function SideBar() {
                     </div>
                 </NavLink>
             
-           
                 <NavLink to={''}>
                     <div  className={`${ActiveLink === '/user' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/user')}>
                         <PersonIcon/>
                         <span >users</span>
                     </div>
                 </NavLink>
-           
                 <NavLink to={''}>
                     <div  className={`${ActiveLink === '/seller' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/seller')}>
                         <StorefrontIcon/>
