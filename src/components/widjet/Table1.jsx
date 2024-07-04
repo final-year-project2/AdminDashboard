@@ -8,26 +8,25 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import useGetData from '../../HttpService/GetHttpRequest/GetHttpRequest';
 import DownloadDoneIcon from '@mui/icons-material/DownloadDone';
-import { useSelector } from 'react-redux';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 const TableView = () => {
-  const {transaction_count} = useSelector((state)=>state.dashboarData)
-  const total_page = Math.ceil(transaction_count/10)
   const [currentPage,setCurrentPage] = useState(1)
   const { data:TransactionData,isPending,error } = useGetData(`http://127.0.0.1:8000/user/RetiveAllTransaction?page=${currentPage}`)
 
-  
 
-  const changePage = (value)=>{
-    if(currentPage<total_page && value == 'up'){
+
+  const changePage = (value,type)=>{
+    if(currentPage<value && type == 'up'){
       setCurrentPage((currentPage)=>currentPage+1)
-    }else if(currentPage>1 && value == 'down'){
+    }else if(currentPage>1 && type == 'down'){
       setCurrentPage((currentPage)=>currentPage-1)
     }
   }
   return (
     <div className='m-10'>
       <div className='mb-5 font-bold text-xl'>
-        Transactions {transaction_count}
+        Transactions 
         <hr />
       </div>
       {TransactionData && <div className='w-full h-auto'>
@@ -43,15 +42,14 @@ const TableView = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {TransactionData.map((TransactionData,index) => (
+                {TransactionData.results.map((TransactionData,index) => (
                   <TableRow
                     key={index}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                  >
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                     <TableCell component="th" scope="row">{TransactionData.amount}</TableCell>
                     <TableCell align="right">{TransactionData.transaction_date}</TableCell>
                     <TableCell align="right">{TransactionData.transaction_type}</TableCell>
-                    <TableCell align="right">{TransactionData.wallet_balance}</TableCell>
+                    <TableCell align="right">{TransactionData.wallet_balance} <span className='text-xs font-thin'>Birr</span></TableCell>
                     <TableCell align="right">
                       <div>
                         <DownloadDoneIcon color='' className='text-green-600'/>
@@ -63,12 +61,19 @@ const TableView = () => {
               </TableBody>
             </Table>
           </TableContainer>
-      </div>}
-      <div>
-        <button onClick={()=>changePage('up')}>
+          
+        <div className='flex gap-2 justify-end mt-7 mr-10'>
+            <button onClick={()=>changePage(Math.ceil(TransactionData.count/10),'down')} className={`${currentPage == 1?'text-gray-300':'text-gray-600'}`}>
+              <ArrowBackIosIcon/>
+            </button>
+            <div>
               {currentPage}
-        </button>
-      </div>
+            </div>
+              <button onClick={()=>changePage(Math.ceil(TransactionData.count/10),'up')} className={`${currentPage >= Math.ceil(TransactionData.count/10)?'text-gray-300':'text-gray-600'}`}>
+                <ArrowForwardIosIcon/>
+              </button>
+        </div>
+      </div>}
     </div>
   )
 }

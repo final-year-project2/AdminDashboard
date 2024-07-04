@@ -6,6 +6,7 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import Home from './pages/Homepage/Dashboard';
 import {store} from './Redux/Store'
 import { Provider } from 'react-redux'
+import Users from './pages/Homepage/Users';
 // import Profile from './pages/Homepage/profile';
 const router = createBrowserRouter([
   {
@@ -13,11 +14,21 @@ const router = createBrowserRouter([
     element:<Home />,
     errorElement:<div>404 not found </div>
   },
-  // {
-  //   path :'/:id',
-  //   element:<Profile />,
-  //   errorElement:<div>404 not found </div>
-  // }
+  {
+    path :'/users',
+    element:<Users />,
+    errorElement:<div>404 not found </div>
+  },
+  {
+    path :'/admin',
+    element:<Users />,
+    errorElement:<div>404 not found </div>
+  },
+  {
+    path :'/ticket_list',
+    element:<Users />,
+    errorElement:<div>404 not found </div>
+  }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

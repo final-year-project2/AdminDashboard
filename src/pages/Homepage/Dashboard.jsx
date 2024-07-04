@@ -7,7 +7,7 @@ import Cards from '../../components/widjet/topCards'
 import useGetData from '../../HttpService/GetHttpRequest/GetHttpRequest'
 import TotalIndicatorcard from '../../components/widjet/TotalIndicatorcard'
 import  TableView  from '../../components/widjet/Table1'
-import Fotter from '../../components/Fotter/Fotter'
+
 const Home = () => {
   const {count} = useSelector((state)=>state.counter)
   

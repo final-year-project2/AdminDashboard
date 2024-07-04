@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import PersonIcon from '@mui/icons-material/Person';
@@ -20,82 +21,89 @@ function SideBar() {
         <hr />
         <br />
         <div>
-            <p className="text-gray-400" >Home</p>
-                <NavLink to={''}>
-                    <div  className={`${ActiveLink === '/' ? "ActiveLink":'navLink'}`} onClick={()=>setActiveLink('/')}>
+            <p className="text-gray-400">Home</p>
+                <div>
+                <Link to={'/'} onClick={()=>setActiveLink('/')}>
+                    <div  className={`${ActiveLink === '/' ? "ActiveLink":'navLink'}`}>
                         <DashboardIcon/>
                         <span >DashBoard</span>
                     </div>
-                </NavLink>
+                </Link>
+                </div>
         </div>
         <br />
         <div>
             <p className="text-gray-400">Personal Information</p>
             
-                <NavLink to={''}>
-                    <div  className={`${ActiveLink === '/admin' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/admin')}>
-                        <AdminPanelSettingsIcon/>
-                        <span>Admin</span>
-                    </div>
-                </NavLink>
+                <div>
+                    <Link to={'/admin'}   onClick={()=>setActiveLink('/admin')}>
+                        <div  className={`${ActiveLink === '/admin' ? "ActiveLink":'navLink'}`}>
+                            <AdminPanelSettingsIcon/>
+                            <span>Admin</span>
+                        </div>
+                    </Link>
+                </div>
             
-                <NavLink to={''}>
-                    <div  className={`${ActiveLink === '/user' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/user')}>
+                <div>
+                <Link to={'/users'}  onClick={()=>setActiveLink('/user')}>
+                    <div  className={`${ActiveLink === '/user' ? "ActiveLink":'navLink'}`}>
                         <PersonIcon/>
                         <span >users</span>
                     </div>
-                </NavLink>
-                <NavLink to={''}>
+                </Link>
+                </div>
+
+                <Link to={''}>
                     <div  className={`${ActiveLink === '/seller' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/seller')}>
                         <StorefrontIcon/>
                         <span>Sellers</span>
                     </div>
-                </NavLink>
+                </Link>
         </div>
         <br />
         <div>
             <p className="text-gray-400">Ticket Information</p>
             
-                <NavLink to={''}>
+                <Link to={'/ticket_list'}>
                     <div  className={`${ActiveLink === '/ticketlist' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/ticketlist')}>
                         <AddCardIcon/>
                         <span>Tickets List</span>
                     </div>
-                </NavLink>
+                </Link>
             
             
-                <NavLink to={''}>
+                <Link to={''}>
                     <div  className={`${ActiveLink === '/purchasedticket' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/purchasedticket')}>
                         <ShoppingCartIcon/>
                         <span>Purchased Ticket</span>
                     </div>
-                </NavLink>
+                </Link>
             
-                <NavLink to={''}>
+                <Link to={''}>
                     <div  className={`${ActiveLink === '/drawedticket' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/drawedticket')}>
                         <CheckCircleOutlineIcon/>
                         <span>Drawed Ticket</span>
                     </div>
-                </NavLink>
+                </Link>
             
 
             
-                <NavLink to={''}>
+                <Link to={''}>
                     <div  className={`${ActiveLink === '/winner' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/winner')}>
                         <EmojiEventsIcon/>
                         <span>Winner</span>
                     </div>
-                </NavLink>
+                </Link>
         </div>
         <br />
         <div>
             <p>Action</p>
-            <NavLink to={''}>
+            <Link to={''}>
                     <div  className={`${ActiveLink === '/logout' ? "ActiveLink":'navLink'}`}>
                         <LogoutIcon/>
                         <span>Logout</span>
                     </div>
-                </NavLink>
+            </Link>
         </div>
         </div>
     </div>
