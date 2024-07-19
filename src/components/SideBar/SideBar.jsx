@@ -11,7 +11,11 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import LogoutIcon from '@mui/icons-material/Logout';
 function SideBar() {
-    const [ActiveLink,setActiveLink] = useState('/')
+    const [ActiveLink,setActiveLink] = useState('')
+    const handleAactiveLink=(value)=>{
+        setActiveLink('')
+        setActiveLink(value)
+    }
   return (
     <div className="h-svh px-4 border-r-2 ">
         <div>
@@ -23,8 +27,8 @@ function SideBar() {
         <div>
             <p className="text-gray-400">Home</p>
                 <div>
-                <Link to={'/'} onClick={()=>setActiveLink('/')}>
-                    <div  className={`${ActiveLink === '/' ? "ActiveLink":'navLink'}`}>
+                <Link to={'/'}>
+                    <div  onClick={()=>handleAactiveLink('/')}  className={`${ActiveLink == '/' ? "ActiveLink":'navLink'}`}>
                         <DashboardIcon/>
                         <span >DashBoard</span>
                     </div>
@@ -35,26 +39,26 @@ function SideBar() {
         <div>
             <p className="text-gray-400">Personal Information</p>
             
-                <div>
+                {/* <div>
                     <Link to={'/admin'}   onClick={()=>setActiveLink('/admin')}>
                         <div  className={`${ActiveLink === '/admin' ? "ActiveLink":'navLink'}`}>
                             <AdminPanelSettingsIcon/>
                             <span>Admin</span>
                         </div>
                     </Link>
-                </div>
+                </div> */}
             
-                <div>
-                <Link to={'/users'}  onClick={()=>setActiveLink('/user')}>
-                    <div  className={`${ActiveLink === '/user' ? "ActiveLink":'navLink'}`}>
+                <div  onClick={()=>handleAactiveLink('user')}>
+                <Link to={'/users'}>
+                    <div className={`${ActiveLink == 'user' ? "ActiveLink":"navLink"}`}>
                         <PersonIcon/>
                         <span >users</span>
                     </div>
                 </Link>
                 </div>
 
-                <Link to={''}>
-                    <div  className={`${ActiveLink === '/seller' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/seller')}>
+                <Link to={'/seller'}>
+                    <div   onClick={()=>handleAactiveLink('seller')}  className={`${ActiveLink == 'seller' ? "ActiveLink":'navLink'}`}>
                         <StorefrontIcon/>
                         <span>Sellers</span>
                     </div>
@@ -65,7 +69,7 @@ function SideBar() {
             <p className="text-gray-400">Ticket Information</p>
             
                 <Link to={'/ticket_list'}>
-                    <div  className={`${ActiveLink === '/ticketlist' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/ticketlist')}>
+                    <div  className={`${ActiveLink === 'ticketlist' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('ticketlist')}>
                         <AddCardIcon/>
                         <span>Tickets List</span>
                     </div>
@@ -107,7 +111,7 @@ function SideBar() {
         </div>
         </div>
     </div>
-  );
+);
 }
 
 export default SideBar;

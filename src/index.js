@@ -7,12 +7,13 @@ import Home from './pages/Homepage/Dashboard';
 import {store} from './Redux/Store'
 import { Provider } from 'react-redux'
 import Users from './pages/Homepage/Users';
-// import Profile from './pages/Homepage/profile';
+import Seller from './pages/Homepage/Seller';
+import SelerDetail from './pages/Homepage/SelerDetail';
 const router = createBrowserRouter([
   {
     path :'/',
     element:<Home />,
-    errorElement:<div>404 not found </div>
+    errorElement:<div>404 not found </div>,
   },
   {
     path :'/users',
@@ -22,6 +23,16 @@ const router = createBrowserRouter([
   {
     path :'/admin',
     element:<Users />,
+    errorElement:<div>404 not found </div>
+  },
+  {
+    path :'/seller',
+    element:<Seller />,
+    errorElement:<div>404 not found </div>
+  },
+  {
+    path :'/seller/:id',
+    element:<SelerDetail />,
     errorElement:<div>404 not found </div>
   },
   {
