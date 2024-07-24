@@ -1,9 +1,9 @@
 import React from "react";
-import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
-import Box from '@mui/material/Box';
-import Rating from '@mui/material/Rating';
-import Typography from '@mui/material/Typography';
-function SellerDetailCard({sellerData}) {
+import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
+import Typography from "@mui/material/Typography";
+function SellerDetailCard({ sellerData }) {
 return (
 <div className="w-full mx-5 my-2 flex rounded-md">
     <div className=" bg-gray-100">
@@ -33,7 +33,6 @@ return (
         <div className="pt-2">Phone Number {sellerData.user.Phone_no}</div>
     </div>
     </div>
-    
 </div>
 );
 }

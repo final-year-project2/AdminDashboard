@@ -12,3 +12,11 @@
 .NavIcon{
     @apply text-gray-700
 }
+
+.ActiveImage{
+    @apply border-blue-600  p-1 border-2
+}
+
+.DetaiImageCss{
+    @apply h-28  rounded-md object-cover 
+}

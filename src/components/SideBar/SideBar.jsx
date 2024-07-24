@@ -9,14 +9,25 @@ import AddCardIcon from '@mui/icons-material/AddCard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import NotInterestedIcon from '@mui/icons-material/NotInterested';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useNavigate } from "react-router-dom";
 function SideBar() {
     const [ActiveLink,setActiveLink] = useState('')
+    const navigate = useNavigate()
     const handleAactiveLink=(value)=>{
         setActiveLink('')
         setActiveLink(value)
     }
-  return (
+
+const Logout = ()=>{
+    const data = { isAutenticated: false};
+    const jsonString = JSON.stringify(data);
+    localStorage.setItem("AutenticationData", jsonString);
+    window.location.reload();
+}
+
+return (
     <div className="h-svh px-4 border-r-2 ">
         <div>
             <div className="h-14 flex items-center justify-center text-2xl font-bold text-blue-500">
@@ -28,7 +39,7 @@ function SideBar() {
             <p className="text-gray-400">Home</p>
                 <div>
                 <Link to={'/'}>
-                    <div  onClick={()=>handleAactiveLink('/')}  className={`${ActiveLink == '/' ? "ActiveLink":'navLink'}`}>
+                    <div  onClick={()=>handleAactiveLink('/home')}  className={`${ActiveLink == '/home' ? "ActiveLink":'navLink'}`}>
                         <DashboardIcon/>
                         <span >DashBoard</span>
                     </div>
@@ -76,23 +87,29 @@ function SideBar() {
                 </Link>
             
             
-                <Link to={''}>
+                {/* <Link to={''}>
                     <div  className={`${ActiveLink === '/purchasedticket' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/purchasedticket')}>
                         <ShoppingCartIcon/>
                         <span>Purchased Ticket</span>
                     </div>
-                </Link>
+                </Link> */}
             
-                <Link to={''}>
+                <Link to={'/drawedticket'}>
                     <div  className={`${ActiveLink === '/drawedticket' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/drawedticket')}>
                         <CheckCircleOutlineIcon/>
-                        <span>Drawed Ticket</span>
+                        <span>Drawed Tickets</span>
                     </div>
                 </Link>
-            
+                <Link to={'/bannedticket'}>
+                    <div  className={`${ActiveLink === '/bannedticket' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/bannedticket')}>
+                        <NotInterestedIcon/>
+                        <span>Baned Tickets</span>
+                    </div>
+                </Link>
+                
 
             
-                <Link to={''}>
+                <Link to={'/winner'}>
                     <div  className={`${ActiveLink === '/winner' ? "ActiveLink":'navLink'}`}  onClick={()=>setActiveLink('/winner')}>
                         <EmojiEventsIcon/>
                         <span>Winner</span>
@@ -102,12 +119,12 @@ function SideBar() {
         <br />
         <div>
             <p>Action</p>
-            <Link to={''}>
-                    <div  className={`${ActiveLink === '/logout' ? "ActiveLink":'navLink'}`}>
+            
+                    <div onClick={()=>Logout()}  className={`${ActiveLink === '/logout' ? "ActiveLink":'navLink'}`}>
                         <LogoutIcon/>
                         <span>Logout</span>
                     </div>
-            </Link>
+            
         </div>
         </div>
     </div>

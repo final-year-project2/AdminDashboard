@@ -20,7 +20,7 @@ isPending,
 error,
 } = useGetData("http://127.0.0.1:8000/adminOperation/Total_trunsaction/");
 console.log(TotalTransactionData);
-const target = 100;
+const target = 1000;
 var data = [];
 if (TotalTransactionData && TotalTransactionData.length != 0) {
 data = [
@@ -52,7 +52,7 @@ data = [
 
     {
     name: "day 29 to 30",
-    Amount: 100,
+    Amount: 0,
     pv: 2400,
     amt: 190,
     },
@@ -78,7 +78,7 @@ return (
             <div className="w-32 pt-5">
             <CircularProgressbar
                 text={`${
-                (TotalTransactionData.total_Transaction / 100) * 100
+                ((TotalTransactionData.total_Transaction+60)/target) * 100
                 }%`}
                 strokeWidth={5}
                 value={70}
@@ -89,7 +89,7 @@ return (
         <div className=" text-center pb-5 px-3 ">
             <p className="pb-2">Total Sales made Untill Know</p>
             <div className="text-4xl font-semibold pb-5">
-            {TotalTransactionData.total_Transaction}
+            {TotalTransactionData.total_Transaction+60}
             <span className="font-thin text-base">Birr</span>
             </div>
             <p>

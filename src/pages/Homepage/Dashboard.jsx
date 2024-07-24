@@ -45,10 +45,8 @@ const Home = () => {
             <div>
             <TableView/>
             </div>
-            
         </div>
       </div>
-
     </div>
   )
 }

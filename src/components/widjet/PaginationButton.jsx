@@ -13,7 +13,7 @@ const changePage = (value, type) => {
     return (
         <>
         <div className="flex gap-2 justify-between mb-10 mt-5  mr-20">
-            <div className="pl-5 text-blue-600">{Data.count} User Record</div>
+            <div className="pl-5 text-blue-600">{Data.count} Records</div>
             <div className="flex">
             <button
                 onClick={() => changePage(Math.ceil(Data.count / 10), "down")}

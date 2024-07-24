@@ -15,12 +15,12 @@ var data = [];
 if (userStatusData) {
 data = [
     {
-    name: "Active user",
+    name: "Activated user",
     Total: userStatusData.Total_user,
     user: userStatusData.Active_user,
     },
     {
-    name: "InActive user",
+    name: "InActivared user",
     Total: userStatusData.Total_user,
     user: userStatusData.Not_Active_user,
     },
@@ -29,7 +29,7 @@ data = [
     Total: userStatusData.staff_user,
     user: userStatusData.staff_user,
     },
-    { name: "Super user", Total: userStatusData.staff_user, user: 1 },
+    { name: "Super Admin", Total: userStatusData.staff_user, user: 1 },
 ];
 }
 
